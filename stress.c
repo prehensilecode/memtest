@@ -10,8 +10,9 @@
 
 void usage(void)
 {
-    fprintf(stderr, "Usage: stress N\n");
+    fprintf(stderr, "Usage: stress N L\n");
     fprintf(stderr, "    where N = no. of gigabytes; N <= %d\n", LIMIT);
+    fprintf(stderr, "    where L = no. of loops; L <= %d\n", LIMIT);
     fflush(stderr);
 }
 
@@ -21,15 +22,18 @@ int main(int argc, char** argv)
     char    mesg[1024];
     size_t  size = 0;
     size_t  maxsize = 0;
-    const size_t  nloops = 100;
+    size_t  nloops = 0;
 
-    if (argc != 2) {
+    if (argc != 3) {
         usage();
         exit(1);
     }
 
     maxsize = atol(argv[1]);
-    printf("maxsize = %ld\n\n", maxsize);
+    printf("maxsize = %ld\n", maxsize);
+
+    nloops = atol(argv[2]);
+    printf("nloops = %ld\n\n", nloops);
 
     if (maxsize > LIMIT) {
         usage();
