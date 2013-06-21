@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -O0 -g -Wall -std=c99
+CFLAGS = -O3 -g -Wall -std=c99
 
 all: glom glom2 sizes stress
 

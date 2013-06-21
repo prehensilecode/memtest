@@ -21,6 +21,7 @@ int main(int argc, char** argv)
     char    mesg[1024];
     size_t  size = 0;
     size_t  maxsize = 0;
+    const size_t  nloops = 100;
 
     if (argc != 2) {
         usage();
@@ -40,18 +41,17 @@ int main(int argc, char** argv)
         mesg[i] = '\0';
 
 
-    for (size_t n = 0; n < maxsize; ++n) {
-        size = n*HALFGIG;
-
-        printf("Trying to allocate %ld chars (%.01f GB) ...\n", size, (float)n/2.);
+    for (size_t i = 0; i < nloops; ++i) {
+        size = maxsize * GIG;
+        printf("Trying to allocate %ld chars (%.01f GB) ...\n", size, (float)maxsize);
         fflush(stdout);
 
         a = (char*)malloc(size);
         if (a == (char*)NULL) {
-            sprintf(mesg, "Cannot allocate %ld chars (%.01f GB)", size, (float)n/2.);
+            sprintf(mesg, "Cannot allocate %ld chars (%.01f GB)", size, (float)maxsize);
             perror(mesg);
         } else {
-            printf("Allocated %ld chars (%.01f GB)\n\n", size, (float)n/2.);
+            printf("Allocated %ld chars (%.01f GB)\n\n", size, (float)maxsize);
         }
 
         /* loop and write random data */
@@ -64,8 +64,6 @@ int main(int argc, char** argv)
             a[m] = '\0';
         }
 
-        sleep(2);
-    
         free(a);
     }
     
