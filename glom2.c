@@ -7,6 +7,7 @@
 #define HALFGIG 536870912l
 
 #define LIMIT   192
+#define STRSIZE 1024
 
 void usage(void)
 {
@@ -18,7 +19,7 @@ void usage(void)
 int main(int argc, char** argv)
 {
     char   *a = NULL;
-    char    mesg[1024];
+    char    mesg[STRSIZE];
     size_t  size = 0;
     size_t  maxsize = 0;
 
@@ -36,7 +37,7 @@ int main(int argc, char** argv)
     }
 
     /* initialize message buffer */
-    for (size_t i = 0; i < 1024; ++i)
+    for (size_t i = 0; i < STRSIZE; ++i)
         mesg[i] = '\0';
 
 
@@ -48,7 +49,7 @@ int main(int argc, char** argv)
 
         a = (char*)malloc(size);
         if (a == (char*)NULL) {
-            sprintf(mesg, "Cannot allocate %ld chars (%.01f GB)", size, (float)n/2.);
+            snprintf(mesg, STRSIZE-1, "Cannot allocate %ld chars (%.01f GB)", size, (float)n/2.);
             perror(mesg);
         } else {
             printf("Allocated %ld chars (%.01f GB)\n\n", size, (float)n/2.);
