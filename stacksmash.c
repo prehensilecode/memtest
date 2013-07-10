@@ -2,16 +2,16 @@
 #include <stdlib.h>
 #include <errno.h>
 
-#define GIG 1073741824l
+#define NCHARS 1073741824l
 
 int main(int argc, char** argv)
 {
-    char   a[GIG];
+    char   a[NCHARS];
     size_t i;
     
-    printf("Got %ld chars on the stack\n", GIG);
+    printf("Got %ld chars on the stack\n", NCHARS);
 
-    for (i = 0; i < GIG; ++i) {
+    for (i = 0; i < NCHARS; ++i) {
         a[i] = 'a';
     }
     
