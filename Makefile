@@ -1,7 +1,7 @@
 CC = gcc
-CFLAGS = -O3 -g -Wall -std=c99
+CFLAGS = -O0 -g -Wall -std=c99
 
-all: glom glom2 sizes stress
+all: glom glom2 sizes stress stacksmash
 
 clean:
 	/bin/rm -f glom glom2 sizes stress
@@ -19,6 +19,10 @@ sizes: sizes.c
 	strip $@
 
 stress: stress.c
+	$(CC) $(CFLAGS) -o $@ $<
+	strip $@
+
+stacksmash: stacksmash.c
 	$(CC) $(CFLAGS) -o $@ $<
 	strip $@
 
