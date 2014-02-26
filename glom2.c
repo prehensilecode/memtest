@@ -12,7 +12,7 @@
 void usage(void)
 {
     fprintf(stderr, "Usage: glom2 N\n");
-    fprintf(stderr, "    where N = no. of gigabytes; N <= %d\n", LIMIT);
+    fprintf(stderr, "    where N = no. of half-gigabytes; N <= %d\n", LIMIT);
     fflush(stderr);
 }
 
