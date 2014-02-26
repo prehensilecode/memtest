@@ -6,7 +6,7 @@
 #define GIG     1073741824l
 #define HALFGIG 536870912l
 
-#define LIMIT   192
+#define LIMIT   512
 #define STRSIZE 1024
 
 void usage(void)
