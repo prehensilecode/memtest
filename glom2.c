@@ -41,7 +41,7 @@ int main(int argc, char** argv)
         mesg[i] = '\0';
 
 
-    for (size_t n = 0; n < maxsize; ++n) {
+    for (size_t n = 0; n <= maxsize; ++n) {
         size = n*HALFGIG;
 
         printf("Trying to allocate %ld chars (%.01f GB) ...\n", size, (float)n/2.);
