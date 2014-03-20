@@ -9,6 +9,7 @@ int main(int argc, char** argv)
     char   *a = NULL;
     char    mesg[1024];
     size_t  size = 0;
+    size_t  i = 0;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: glom N\n");
@@ -21,7 +22,7 @@ int main(int argc, char** argv)
     printf("Trying to allocate %ld chars (%ld GB) ...\n", size, size/GIG);
     fflush(stdout);
 
-    for (size_t i = 0; i < 1024; ++i)
+    for (i = 0; i < 1024; ++i)
         mesg[i] = '\0';
 
     a = malloc(size);

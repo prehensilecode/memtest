@@ -22,6 +22,8 @@ int main(int argc, char** argv)
     char    mesg[STRSIZE];
     size_t  size = 0;
     size_t  maxsize = 0;
+    size_t  n = 0;
+    size_t  i = 0;
 
     if (argc != 2) {
         usage();
@@ -37,11 +39,11 @@ int main(int argc, char** argv)
     }
 
     /* initialize message buffer */
-    for (size_t i = 0; i < STRSIZE; ++i)
+    for (i = 0; i < STRSIZE; ++i)
         mesg[i] = '\0';
 
 
-    for (size_t n = 0; n <= maxsize; ++n) {
+    for (n = 0; n <= maxsize; ++n) {
         size = n*HALFGIG;
 
         printf("Trying to allocate %ld chars (%.01f GB) ...\n", size, (float)n/2.);
@@ -55,7 +57,7 @@ int main(int argc, char** argv)
             printf("Allocated %ld chars (%.01f GB)\n\n", size, (float)n/2.);
         }
 
-        sleep(2);
+        usleep((unsigned int)750000);
     
         free(a);
     }

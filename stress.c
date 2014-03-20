@@ -23,6 +23,8 @@ int main(int argc, char** argv)
     size_t  size = 0;
     size_t  maxsize = 0;
     size_t  nloops = 0;
+    size_t  i = 0;
+    size_t  m = 0;
 
     if (argc != 3) {
         usage();
@@ -41,11 +43,11 @@ int main(int argc, char** argv)
     }
 
     /* initialize message buffer */
-    for (size_t i = 0; i < 1024; ++i)
+    for (i = 0; i < 1024; ++i)
         mesg[i] = '\0';
 
 
-    for (size_t i = 0; i < nloops; ++i) {
+    for (i = 0; i < nloops; ++i) {
         size = maxsize * GIG;
         printf("Trying to allocate %ld chars (%.01f GB) ...\n", size, (float)maxsize);
         fflush(stdout);
@@ -59,7 +61,7 @@ int main(int argc, char** argv)
         }
 
         /* loop and write random data */
-        for (size_t m = 0; m < size; ++m) {
+        for (m = 0; m < size; ++m) {
             a[m] = 'c';
             a[m] = '\0';
             a[m] = 'a';
