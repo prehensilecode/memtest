@@ -13,6 +13,8 @@ int main(int argc, char** argv)
     printf("sizeof(float)     = %ld\n", sizeof(float));
     printf("sizeof(double)    = %ld\n", sizeof(double));
 
+    printf("RAND_MAX          = %d\n", RAND_MAX);
+
     return 0;
 }
 
