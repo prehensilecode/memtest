@@ -62,7 +62,7 @@ int main(int argc, char** argv)
             snprintf(mesg, STRSIZE-1, "Cannot allocate %ld chars (%.02f GB)", size, (float)n/4.);
             perror(mesg);
         } else {
-            printf("Allocated %ld chars (%.01f GB)\n", size, (float)n/4.);
+            printf("Allocated %ld chars (%.02f GB)\n", size, (float)n/4.);
             /* fill the array with random chars 
              * there are 94 printable ASCII chars, 33--126 */
             printf("Filling array ...");
