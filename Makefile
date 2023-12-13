@@ -2,7 +2,7 @@ CC = gcc
 #CFLAGS = -O0 -g -Wall -std=c99
 CFLAGS = -O0 -g -Wall
 
-all: glom glom2 sizes stress stacksmash ascii
+all: glom glom2 sizes stress stacksmash
 
 clean:
 	/bin/rm -f glom glom2 sizes stress
@@ -27,6 +27,3 @@ stacksmash: stacksmash.c
 	$(CC) $(CFLAGS) -o $@ $<
 	strip $@
 
-ascii: ascii.c
-	$(CC) $(CFLAGS) -o $@ $<
-	strip $@
