@@ -54,15 +54,15 @@ int main(int argc, char** argv)
     for (n = 0; n <= maxsize; ++n) {
         size = n*HALFGIG;
 
-        printf("Trying to allocate %ld chars (%.02f GB) ...\n", size, (float)n/4.);
+        printf("Trying to allocate %ld chars (%.02f GiB) ...\n", size, (float)n/4.);
         fflush(stdout);
 
         a = (char*)malloc(size);
         if (a == (char*)NULL) {
-            snprintf(mesg, STRSIZE-1, "Cannot allocate %ld chars (%.02f GB)", size, (float)n/4.);
+            snprintf(mesg, STRSIZE-1, "Cannot allocate %ld chars (%.02f GiB)", size, (float)n/4.);
             perror(mesg);
         } else {
-            printf("Allocated %ld chars (%.02f GB)\n", size, (float)n/4.);
+            printf("Allocated %ld chars (%.02f GiB)\n", size, (float)n/4.);
             /* fill the array with random chars 
              * there are 94 printable ASCII chars, 33--126 */
             printf("Filling array ...");

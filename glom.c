@@ -19,7 +19,7 @@ int main(int argc, char** argv)
 
     size = atol(argv[1]);
 
-    printf("Trying to allocate %ld chars (%ld GB) ...\n", size, size/GIG);
+    printf("Trying to allocate %ld chars (%ld GiB) ...\n", size, size/GIG);
     fflush(stdout);
 
     for (i = 0; i < 1024; ++i)
@@ -30,7 +30,7 @@ int main(int argc, char** argv)
         sprintf(mesg, "Cannot allocate %ld chars", size);
         perror(mesg);
     } else {
-        printf("Allocated %ld chars for %ld GB\n", size, size/GIG);
+        printf("Allocated %ld chars for %ld GiB\n", size, size/GIG);
     }
 
     free(a);
