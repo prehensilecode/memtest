@@ -14,7 +14,7 @@
 void usage(void)
 {
     fprintf(stderr, "Usage: glom2 N\n");
-    fprintf(stderr, "    where N = no. of quarter-gigabytes; N <= %d\n", LIMIT);
+    fprintf(stderr, "    where N = no. of gibibytes; N <= %d\n", LIMIT);
     fflush(stderr);
 }
 
@@ -35,7 +35,7 @@ int main(int argc, char** argv)
     }
 
     maxsize = atol(argv[1]);
-    printf("maxsize = %ld = %.02f GiB\n\n", maxsize, (float)maxsize/4.);
+    printf("maxsize = %ld = %.02f GiB\n\n", maxsize, (float)maxsize);
 
     if (maxsize > LIMIT) {
         usage();
@@ -52,17 +52,17 @@ int main(int argc, char** argv)
 
 
     for (n = 1; n <= maxsize; ++n) {
-        size = n*QUARTERGIG;
+        size = n*GIG;
 
-        printf("Trying to allocate %ld chars (%.02f GiB) ...\n", size, (float)n/4.);
+        printf("Trying to allocate %ld chars (%.02f GiB) ...\n", size, (float)n);
         fflush(stdout);
 
         a = (char*)malloc(size);
         if (a == (char*)NULL) {
-            snprintf(mesg, STRSIZE-1, "Cannot allocate %ld chars (%.02f GiB)", size, (float)n/4.);
+            snprintf(mesg, STRSIZE-1, "Cannot allocate %ld chars (%.02f GiB)", size, (float)n);
             perror(mesg);
         } else {
-            printf("Allocated %ld chars (%.02f GiB)\n", size, (float)n/4.);
+            printf("Allocated %ld chars (%.02f GiB)\n", size, (float)n);
             /* fill the array with random chars 
              * there are 94 printable ASCII chars, 33--126 */
             printf("Filling array ...");
