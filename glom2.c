@@ -8,7 +8,7 @@
 #define HALFGIG 536870912l
 #define QUARTERGIG 268435456l
 
-#define LIMIT   512
+#define LIMIT   8192
 #define STRSIZE 1024
 
 void usage(void)
